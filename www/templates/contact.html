@@ -1,0 +1,49 @@
+<ion-view>
+    <ion-content style="top:0px" overflow-scroll="false" class="custom">
+
+        <div class="contact-set">
+            <div class="map-set">
+            <h2 class="title-c"><font color="white"><b>Complaints</b></font></h2>
+            </div>
+        </div>
+
+        <div class="contact-form-set" ng-show="tab=='form-set'">
+            <div class="contact-form">
+                <div class="list login-user">
+                    <label class=" item-input item-borderless">
+                        <i class="icon ln-user"></i>
+                        <input type="text" placeholder="Name" value={{name}} ng-disabled="!editblnce">
+                    </label>
+                    
+                    <label class="item-input item-select item-borderless">
+                        <div class="input-label">
+                        <i class="icon ln-book-closed"><font size="3">  Category</font></i>
+                        
+                        </div>
+                        <select class="label" ng-model="mySelect" ng-change="showSelectValue(mySelect)">
+                          <option>Carpenter</option>
+                          <option>Plumber</option>
+                          <option>Electrician</option>
+                          <option>Environment</option>
+                          <option>Security</option>
+                          <option>Other..</option>
+
+                        </select>
+                    </label>
+                    <label class="item-input item-borderless">
+                        <i class="icon ln-comments"></i>
+                        <textarea  class="label item-placeholder" placeholder="Type Complaints here..." rows="2" cols="10" ng-model="comp.send"></textarea>
+                    </label>
+                </div> 
+            </div> 
+
+            <div class="signin footer">           
+              <div class="login-btn btn-set">
+                <button class="button button-block button-positive" ng-click = "sendR()">
+                Send                
+                </button>       
+              </div>
+            </div>        
+        </div>   
+    </ion-content>
+</ion-view>

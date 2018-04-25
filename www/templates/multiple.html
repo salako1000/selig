@@ -1,0 +1,47 @@
+<ion-view>
+
+    <div class="bar bar-header bar-calm">
+        <h1 class="title">Multiple Visitors</h1>
+    </div>
+
+   
+    <!-- <ion-content  overflow-scroll="false"> -->
+      <div class="bar bar-subheader item-input-inset">
+                <label class="item-input-wrapper">
+                     <input type="text" class="item-placeholder" placeholder="enter name..." ng-model="visitorInput.text">
+                </label>
+                   &nbsp &nbsp <a class="icon ln-circle-plus" ng-click="addItem()"></a>
+       </div>
+
+        <ion-content overflow-scroll="false" class="has-header custom ion-content-below-my-video">
+
+                 
+           
+              <!-- <ion-content has-tabs="true" class="has-subheader"> -->
+
+                  <div class="card" style="padding: 0px;">
+                    <div class="item item-icon-right" ng-repeat="x in products" class="padded">{{x}}
+                      <div class="icon ion-trash-a icon assertive" ng-click="removeItem($index)">
+                      </div>
+                    </div>
+                  </div>
+                  
+               <!--  <div ng-hide="hideComplete">
+                  <center><p><button class="button button-borderless button-rounded button-balanced " ng-click="complete()"> Complete </button></p></center>
+                </div> -->
+
+                  <div class="button-bar button-pill button-small" ng-hide="hideButton">
+                    <a class="button button-assertive" ng-click="deleteList()">Delete All</a>
+                    <a class="button button-calm" ng-click="sendList()">Send All</a>
+                  </div>
+                  
+
+                  <!-- <div>
+                    <ion-infinite-scroll ng-hide="showLoader">
+                    </ion-infinite-scroll>
+                    </div> -->
+                <!-- </ion-content> -->
+
+
+    </ion-content>
+</ion-view>

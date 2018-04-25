@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "523329683148",
+    "firebase_url": "https://e-estate-83715.firebaseio.com",
+    "project_id": "e-estate-83715",
+    "storage_bucket": "e-estate-83715.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:523329683148:android:67449fe888cea247",
+        "android_client_info": {
+          "package_name": "com.aircom.e_estate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "523329683148-14krclqk6psf6v2cc4t6ljbkfjgddocd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATtHwM94WjlzQSg0KBNYstlaSiuILqF6Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

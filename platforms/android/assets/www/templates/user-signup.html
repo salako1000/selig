@@ -1,0 +1,48 @@
+<ion-view>
+
+   <div class="bar bar-header dark-green">
+        <h1 class="title back-arrow"><a href="#/app/home"><i class="icon ion-ios-arrow-thin-left"></i></a></h1>
+    </div>
+
+
+
+    <ion-content style="top:0px" overflow-scroll="false" class="custom">
+      <div class="clip-polygon">
+        <div class="map-set">
+            <h2 class="title-b"><font color="white"><b>Register Sub Users</b></font></h2>
+        </div>
+     </div> 
+            <div class="sign-content">
+                <div class="list login-user">
+                    <label class=" item-input">
+                        <i class="icon ln-user"></i>
+                        <input class="item-placeholder" type="text" placeholder="Name" ng-model="user.name">
+                    </label>
+                    <label class=" item-input">
+                        <i class="icon ln-envelope"></i>
+                        <input class="item-placeholder" type="email" placeholder="Email" ng-model="user.email">
+                    </label>
+                    <label class=" item-input">
+                        <i class="icon ln-phone"></i>
+                        <input type="number" class="item-placeholder" placeholder="Phone Number" ng-model="user.phone">
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="signin footer">
+            <div class="login-btn btn-set">
+                <!-- <a href="#/app/home"> -->
+                    <button class="button button-full button-positive button-block" ng-click="register()">
+                        Register
+                    </button>
+                <!-- </a> -->
+            </div>
+            <!-- <div class="sign  text-center">
+                <span>Don’t have an account?<a href="#/user-login">Sign In</a></span>
+            </div> -->
+         
+        </div>
+
+    </ion-content>
+</ion-view>

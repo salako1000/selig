@@ -1,0 +1,61 @@
+<ion-view>
+     <div class="bar bar-header bar-calm">
+        <h1 class="title">{{text}}</h1>
+    </div>
+    <ion-content overflow-scroll="false" class="has-header custom">
+
+
+    <div class="list">
+          <label class="item item-input  ">
+            <span class="input-label">Address:</span>
+            <input type="text" value='12 Wallace road' ng-disabled="!editblnce">
+          </label>
+
+          <!-- <label class="item item-input" ng-hide="showme">
+            <span class="input-label">Balance:</span>
+             <input type="text" value={{balance}} ng-disabled="!editblnce">
+          </label> -->
+    </div>
+<!-- triggerActionSheet -->
+
+    <center><button class="button button-calm button-rounded button-small" ng-click="triggerActionSheet()"> &nbsp Pay Now </button>
+    </center>
+
+ <!-- <div class="button-bar classy button-small class" ng-hide="hideButton">
+                    <a class="button button-balanced" onclick="window.open('https://www.quickteller.com/ekedppostpaid', '_system', 'location=yes');">Pay with Quickteller</a>
+                    <a class="button button-calm" ng-click="showForm()" ">Pay with App</a>
+                  </div> -->
+ 
+
+<div ng-hide="showForm">
+  <div class="card">
+    <div class="list">
+      <div class="item item-divider ">
+         Enter Account Details
+      </div>
+
+   <label class="item item-input item-borderless">
+    <span class="input-label">Account:</span>
+     <input  class ="item-placeholder" type="text" placeholder="account number.." ng-model="pay.acc" maxlength="10">
+   </label>
+          
+  
+
+ <label class="item item-input">
+    <span class="input-label">Amount:</span>
+      <input class ="item-placeholder" type="text" placeholder="amount.." ng-model="pay.amount">
+  </label>
+
+  
+
+  </div>
+</div>
+
+<center><button class="button button-borderless button-rounded button-balanced button-small" ng-click="send()">
+  Complete Transaction
+</button></center>
+
+        
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,50 @@
+<ion-view>
+
+    <div class="bar bar-header bar-calm">
+        <h1 class="title">Single Visitor</h1>
+    </div>
+
+   
+    <!-- <ion-content  overflow-scroll="false"> -->
+
+        <ion-content overflow-scroll="false" class="has-header custom">
+
+                 <div class="card card-rounded">
+                  <div class="list">
+                     <label class="item item-input">
+                       <span class="input-label">Name:</span>
+                        <input class ="item-placeholder" type="text" placeholder="enter name.." ng-model="visitor.single">
+                     </label>
+                        <label class="item item-input">
+                          <span class="input-label">Arrival Date:</span>
+                            <input type="date" ng-model="visitor.date">
+                        </label>
+                        <label class="item item-input item-select">
+                           <div class="input-label">
+                              With Car
+                           </div>
+                    
+                           <select class="label" ng-model="mySelected" ng-change="showSelectValue(mySelected)">
+                              <option>Yes</option>
+                              <option>No</option>
+                           </select>
+
+                      </label>
+                  </div>
+                </div>
+
+
+                	<center><button class="button button-borderless button-rounded button-balanced button-small" ng-click="send()">
+					  Submit Request
+					</button></center>
+                  
+
+                  <!-- <div>
+                    <ion-infinite-scroll ng-hide="showLoader">
+                    </ion-infinite-scroll>
+                    </div> -->
+                <!-- </ion-content> -->
+
+
+    </ion-content>
+</ion-view>
