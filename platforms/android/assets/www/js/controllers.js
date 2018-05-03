@@ -144,7 +144,7 @@ angular.module('starter.controllers', ['myservices'])
                                       "amount": $scope.pay.amount, 
                                       "title":$rootScope.text,
                                        });
-       var link = "http://e-estate.herokuapp.com/api/payments";
+       var link = "http://46.101.42.51/api/payments";
 
        var headers= 
           {
@@ -227,7 +227,7 @@ angular.module('starter.controllers', ['myservices'])
                                            "user_id": $scope.id, 
                                            "type":'Other',
                                             "description":$scope.data.input});
-                    var link = "https://e-estate.herokuapp.com/api/emergencies";
+                    var link = "http://46.101.42.51/api/emergencies";
                     var headers= 
                     {
                     Content_Type: "application/json",
@@ -290,7 +290,7 @@ angular.module('starter.controllers', ['myservices'])
                                            "type":$scope.info,
                                             "description":"Emergency alert"});
 
-          var link = "https://e-estate.herokuapp.com/api/emergencies";
+          var link = "http://46.101.42.51/api/emergencies";
          
           var headers= 
             {
@@ -330,7 +330,7 @@ angular.module('starter.controllers', ['myservices'])
   
 
   var api = localStorage.getItem('estate_api_token');
-  var link = "https://e-estate.herokuapp.com/api/visitors/?api_token="+api;
+  var link = "http://46.101.42.51/api/visitors/?api_token="+api;
        var headers= 
           {
             Content_Type: "application/json",
@@ -410,7 +410,7 @@ $scope.Logout = function(){
       } else{
 
       console.log($rootScope.visitor_id);
-      var link = 'https://e-estate.herokuapp.com/api/visitors/'+$rootScope.visitor_id+'/showVisitors?api_token='+api;
+      var link = 'http://46.101.42.51/api/visitors/'+$rootScope.visitor_id+'/showVisitors?api_token='+api;
       var headers= 
           {
             Content_Type: "application/json",
@@ -515,7 +515,7 @@ $scope.Logout = function(){
     
 
     var api = localStorage.getItem('estate_api_token');
-    var link = "https://e-estate.herokuapp.com/api/messages/?api_token="+api;
+    var link = "http://46.101.42.51/api/messages/?api_token="+api;
     var headers= 
       {
         Content_Type: "application/json",
@@ -557,7 +557,7 @@ $scope.Logout = function(){
       'unique_code': $scope.login.enter,
        });
 
-    var link = "http://e-estate.herokuapp.com/api/login";
+    var link = "http://46.101.42.51/api/login";
      $ionicLoading.show({
             template: '<ion-spinner icon="spiral"></ion-spinner>'
             // duration :5000
@@ -781,7 +781,7 @@ $scope.Logout = function(){
                                       "user_id": $scope.id, 
                                       "category":$scope.selected,
                                        "description":$scope.comp.send});
-       var link = "https://e-estate.herokuapp.com/api/complaints";
+       var link = "http://46.101.42.51/api/complaints";
        var headers= 
           {
             Content_Type: "application/json",
@@ -898,7 +898,7 @@ $scope.Logout = function(){
                                       "user_id": $scope.id, 
                                       "category":$rootScope.service,
                                        "description":$scope.request.enter});
-       var link = "https://e-estate.herokuapp.com/api/services";
+       var link = "http://46.101.42.51/api/services";
        var headers= 
           {
             Content_Type: "application/json",
@@ -977,7 +977,7 @@ $scope.Logout = function(){
                                               "user_id": $scope.id, 
                                               "names":$scope.visitor.single,
                                                "date":appDate});
-               var link = "https://e-estate.herokuapp.com/api/visitors";
+               var link = "http://46.101.42.51/api/visitors";
                var headers= 
           {
             Content_Type: "application/json",
@@ -1119,7 +1119,7 @@ $scope.Logout = function(){
                                       "names":Vdata,
                                       "single": 0,
                                        "date":appDate});
-          var link = "https://e-estate.herokuapp.com/api/visitors";
+          var link = "http://46.101.42.51/api/visitors";
           var headers= 
             {
               Content_Type: "application/json",
@@ -1246,7 +1246,7 @@ $scope.Logout = function(){
                                       "email": $scope.user.email, 
                                       "phone":$scope.user.phone,
                                        });
-       var link = "http://e-estate.herokuapp.com/api/residents/sub";
+       var link = "http://46.101.42.51/api/residents/sub";
 
        var headers= 
           {
@@ -1278,6 +1278,9 @@ $scope.Logout = function(){
              title: 'Network Error',
              template: 'Please try later'
           });
+        $scope.user.name = '';
+        $scope.user.email = '';
+        $scope.user.phone = '';
         $scope.showLoader = true;
         $scope.showForm = false;
 

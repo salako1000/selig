@@ -1,27 +1,32 @@
-<ion-view>
-    <ion-content overflow-scroll="false" class="first">
+ 
 
-        <div class="login-set">
+
+
+<ion-view title="SIgn-in" hide-nav-bar="true" hide-back-button="true" id="page5" style="background-color:#1F77E6;">
+  
+  
+  <ion-content class="has-header" style="background-color:#1F77E6;">
+
+     <div>
+       <div class="login-set animated zoomIn item-borderless">
             <img src="img/logo_.png" class="img-responsive">
         </div>
 
-        <div class="login-content">
-            <div class="list login-user">
-                <label class=" item-input">
-                    <i class="icon ln-pencil"></i>
-                    <input type="password" placeholder="Unique Code" ng-model="login.enter" maxlength="8">
-                </label>
-            </div>
-            <div class="login footer">
-                <div class="login-btn btn-set">
-                    <!-- <a href="#/app/home"> -->
-                        <button class="button button-full button-calm button-rounded icon ln-unlock" ng-click="login()">
-                            Sign in
-                        </button>
-                    <!-- </a> -->
-                </div>
-            </div>
-        </div>
+    <a class="item item-borderless" style="background-color:#1F77E6;">
+        
+                   <br>
+                   <br>
+                   <br>
 
-    </ion-content>
+                    <label class="item item-input animated zoomIn button-rounded">
+                     <i class="icon ln-pencil"></i>
+                    <input type="password" class="label item-placeholder" placeholder="       enter unique code" ng-model="login.enter" maxlength="8">
+                    </label>
+                     <br>
+                     <center><p><button class="button button-rounded button-balanced button-block animated zoomIn icon ln-unlock" ng-click="login()"> &nbsp Sign in </button></p></center>
+
+                     
+      </a>
+    </div>
+  </ion-content>
 </ion-view>

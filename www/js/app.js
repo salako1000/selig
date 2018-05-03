@@ -187,7 +187,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'myservices', 'jagrut
             views: {
                 'menuContent': {
                     templateUrl: "templates/gallery-category.html",
-                    controller: '.'
+                    controller: 'GallerycategoryCtrl'
                 }
             }
         })
