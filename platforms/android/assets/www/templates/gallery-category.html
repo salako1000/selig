@@ -4,7 +4,7 @@
     </div>
     <ion-content  overflow-scroll="false" class="has-header custom">
 
-        <label class="item item-input item-select card">
+        <!-- <label class="item item-input item-select card">
            <div class="input-label">
               Request
            </div>
@@ -19,7 +19,7 @@
     
 
 
-      <!-- End Bottom Controls -->
+      End Bottom Controls
      <div class="list card">
         <label class="item item-input label">
           <textarea class="label item-placeholder" placeholder="what would you like to do...?" ng-model="request.enter" rows="6" cols="10"></textarea>
@@ -28,7 +28,51 @@
       </div>
 
     <center><button class="button button-calm button-rounded button-small" ng-click="send()"> &nbsp Send Request </button>
+ -->
+
+ <div class="list social-list">
+       
+<a class="item item-text-wrap item rounded">
+          <h1 class="box-blue"></h1>
+          <p>
+            Please enter information about the {{service}} service required below.
+          </p>
+        </a>
+
+    <a class="item">
+        
+                    
+
+                    <label class="item item-input animated zoomIn button-rounded">
+                      <span class="input-label">Name:</span>
+                    <input type="text" value={{name}} ng-disabled="!editblnce">
+                    </label>
+                     <br>
+                     <label class="item item-input item-select animated zoomIn button-rounded">
+                      <div class="input-label">
+                       &nbsp Request
+                      </div>
+                     <select class="label" ng-model="mySelected" ng-change="showSelectValue(mySelected)">
+              <option>{{option1}}</option>
+              <option>{{option2}}</option>
+              <option>{{option3}}</option>
+           </select>
+
+                    </label>
+                    <br>
+                     <label class="item item-input animated zoomIn button-rounded">
+          <textarea class="label item-placeholder" placeholder="     what would you like to do...?" ng-model="request.enter" rows="6" cols="10"></textarea>
+                      
+                    </label>
+                     <br>
+                     <center><p><button class="button button-rounded button-balanced button-block animated zoomIn" ng-click="send()"> &nbsp Submit Request</button></p></center>
+
+                     
+      </a>
+    </div>
 
 
     </ion-content>
 </ion-view>
+
+

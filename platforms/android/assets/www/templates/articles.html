@@ -27,8 +27,8 @@
                   </div> -->
  
 
-<div ng-hide="showForm">
-  <div class="card">
+<!-- <div ng-hide="showForm"> -->
+  <!-- <div class="card">
     <div class="list">
       <div class="item item-divider ">
          Enter Account Details
@@ -53,9 +53,38 @@
 
 <center><button class="button button-borderless button-rounded button-balanced button-small" ng-click="send()">
   Complete Transaction
-</button></center>
-
+</button></center> -->
+</br>
+</br>
+</br>
+<div class="list social-list" ng-hide="showForm">
+       <a class="item item-text-wrap item rounded item-borderless">
+          <h1 class="box-blue"></h1>
+          <b>
+            Please enter account details
+          </b>
+        </a>
+    <a class="item">
         
+
+                    <label class="item item-input animated zoomIn button-rounded">
+                      <span class="input-label">Account:</span>
+                    <input  class ="item-placeholder" type="text" placeholder="account number.." ng-model="pay.acc" maxlength="10">
+                    </label>
+                     <br>
+                     <label class="item item-input animated zoomIn button-rounded">
+                      <span class="input-label">Amount:</span>
+                    <input class ="item-placeholder" type="text" placeholder="amount.." ng-model="pay.amount">
+                    </label>
+                     <br>
+                     
+                    <br>
+                     <center><p><button class="button button-rounded button-balanced button-block animated zoomIn" ng-click="send()"> &nbsp Complete Transaction</button></p></center>
+
+                     
+      </a>
+    </div>  
+      
 
     </ion-content>
 </ion-view>

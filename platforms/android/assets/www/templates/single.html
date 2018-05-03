@@ -7,9 +7,9 @@
    
     <!-- <ion-content  overflow-scroll="false"> -->
 
-        <ion-content overflow-scroll="false" class="has-header custom">
+        <ion-content overflow-scroll="flase" class="has-header custom">
 
-                 <div class="card card-rounded">
+                 <!-- <div class="card card-rounded">
                   <div class="list">
                      <label class="item item-input">
                        <span class="input-label">Name:</span>
@@ -36,8 +36,49 @@
 
                 	<center><button class="button button-borderless button-rounded button-balanced button-small" ng-click="send()">
 					  Submit Request
-					</button></center>
-                  
+					</button></center> -->
+                  <div class="list social-list">
+                    <a class="item item-text-wrap item rounded">
+          <h1 class="box-blue"></h1>
+          <p>
+            Please enter Visitor Information below.
+          </p>
+        </a>
+
+       
+
+    <a class="item item-borderless">
+        
+                    
+
+                    <label class="item item-input animated zoomIn button-rounded">
+                      <span class="input-label">Name:</span>
+                        <input class ="item-placeholder" type="text" placeholder="enter name.." ng-model="visitor.single">
+                    </label>
+                     <br>
+                    <label class="item item-input animated zoomIn button-rounded">
+                      <span class="input-label">Arrival Date:</span>
+                        <input type="date" ng-model="visitor.date">
+                    </label>
+                     <br>
+                     <label class="item item-input item-select animated zoomIn button-rounded">
+                      <div class="input-label">
+                       &nbsp With car
+                      </div>
+                     <select class="label" ng-model="mySelected" ng-change="showSelectValue(mySelected)">
+                        <option>Yes</option>
+                        <option>No</option>
+                     </select>
+
+                    </label>
+                    <br>
+                     
+                     <br>
+                     <center><p><button class="button button-rounded button-balanced button-block animated zoomIn" ng-click="send()"> &nbsp Submit Request</button></p></center>
+
+                     
+      </a>
+    </div>
 
                   <!-- <div>
                     <ion-infinite-scroll ng-hide="showLoader">
@@ -48,3 +89,4 @@
 
     </ion-content>
 </ion-view>
+

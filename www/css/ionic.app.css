@@ -124,6 +124,13 @@ img.img-responsive {
   max-width: 100%;
   /* height: auto; */ }
 
+ .rounded_icon { border-radius : 0px 2400px 1200px 0px; padding: 0px;}
+
+ .button-rounded {border-radius: 35px; padding-left: 30px; padding-right: 30px;}
+
+ .item-rounded {border-radius: 4px;}
+
+
 .bar-side {
   background-image: url('../img/app/estate.png') !important;
   height: 210px !important;
