@@ -1,0 +1,47 @@
+<ion-view>
+
+    <div class="bar bar-header bar-calm">
+        <h1 class="title">Broadcast Messages</h1>
+    </div>
+
+   
+    <ion-content  overflow-scroll="false" class="custom">
+
+        <div class="popular" ng-repeat="message in data">
+            
+            <div class="post-list" >
+                <div class="list card margin-tp">
+
+                    <div class="item item-avatar post-head">
+                        <img src="img/app/logo_.png">
+                        <h2>{{message.title}}</h2>
+                        <p>{{message.updated_at}}</p>
+                    </div>
+
+                    <div class="item item-body word-content">
+                        <!--    <img class="full-image" src="delorean.jpg">-->
+                        <div class="post-actions row ans-set faqhead faqhead{{$index}}">
+                            <div>
+                                {{message.content}}
+                            </div>
+                            
+                        </div>
+                        <div class="read-more col col-center col-33" ng-show='showButton'>
+                                <a ng-click="showmores($index)" class="button button-small button-block button-calm">
+                                 Read more
+                                 </a>
+                            </div>
+                            <div class="read-more col col-center col-33" ng-hide='hideButton'>
+                                <a ng-click="hideme($index)" class="button button-small button-block button-calm">
+                                 Read more
+                                 </a>
+                            </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,61 @@
+<ion-view>
+    <ion-content style="top:0px" overflow-scroll="true" class="custom">
+
+        <div class="gallery-set">
+            <div class="map-set">
+            <h2 class="title-c"><font color="white"><b>Emergency Services</b></font></h2>
+            </div>
+        </div>
+
+        <ul class="list gem-friend-list">
+         
+          <a class="item item-avatar item-borderless" ng-click="emergency('Fire')">
+           
+            <img src="img/app/fire2.png"> <!-- End Image - absolute left/top -->
+            <div class="gem-friend-list-text">
+              <!-- <input type="text" ng-value="hit" ng-model="data.data"> -->
+              <b>Fire Emergency</b>
+              <p>Alarm or Report a Fire</p>
+            </div>
+          </a>
+
+          <a class="item item-avatar item-borderless" ng-click="emergency('Robbery')">
+            <img src="img/app/Robber.png" alt="" class="gem-friend-list-profile-pic"> <!-- End Image - absolute left/top -->
+            <div class="gem-friend-list-text">
+              <b>Robbery</b>
+              <p>Alarm or Report a Robbery</p>
+            </div>
+        
+          </a>
+          <a class="item item-avatar item-borderless" ng-click="emergency('Power')">
+            <img src="img/app/power.jpg" alt="" class="gem-friend-list-profile-pic"> <!-- End Image - absolute left/top -->
+            <div class="gem-friend-list-text">
+
+              <b>Power</b>
+              <p>Power Blackout or Power Failure</p>
+            </div>
+        
+
+          </a>
+          <a class="item item-avatar item-borderless" ng-click="emergency('Accident')">
+            <img src="img/app/accident.jpg" alt="" > <!-- End Image - absolute left/top -->
+            <div class="gem-friend-list-text">
+              <b>Domestic Accident</b>
+              <p>Notify in case of a domestic accident</p>
+            </div>
+          </a>
+
+          <a class="item item-avatar item-borderless" ng-click="showPopup('Others')">
+            <img src="img/app/others.png" alt="" > <!-- End Image - absolute left/top -->
+            <div class="gem-friend-list-text">
+              <b>Others</b>
+              <p>Please specify Emergency</p>
+            </div>
+          </a>
+
+      </ul>
+       
+      
+
+    </ion-content>
+</ion-view>
