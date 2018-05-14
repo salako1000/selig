@@ -10,13 +10,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'myservices', 'jagrut
     $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
-            if (localStorage.getItem('estate_name') == null){
-            $state.go('user-login');
-            } else if(localStorage.getItem('estate_role') == 'resident'){
-            $state.go('app.home');
-            } else if(localStorage.getItem('estate_role') == 'admin'){
-            $state.go('recvis');
-            }
+            // if (localStorage.getItem('estate_name') == null){
+            // $state.go('user-login');
+            // } else if(localStorage.getItem('estate_role') == 'resident'){
+            // $state.go('app.home');
+            // } else if(localStorage.getItem('estate_role') == 'admin'){
+            // $state.go('recvis');
+            // }
 
         if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
@@ -42,6 +42,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'myservices', 'jagrut
                 .endInit();
 
                 window.plugins.OneSignal.enableInAppAlertNotification(true);
+                window.plugins.OneSignal.getIds(function(ids) {
+                //document.getElementById("OneSignalUserID").innerHTML = "UserID: " + ids.userId;
+                //document.getElementById("OneSignalPushToken").innerHTML = "PushToken: " + ids.pushToken;
+                alert(JSON.stringify(ids['userId']));
+                localStorage.setItem('PlayerID', ids['userId']);
+            });
             // })
 
 
@@ -98,6 +104,45 @@ angular.module('starter', ['ionic', 'starter.controllers', 'myservices', 'jagrut
     }
 
         })
+
+        .state('tab', {
+      url: "/tab",
+      abstract: true,
+      templateUrl: "templates/tab_menu.html",
+      controller: 'tabCtrl'
+
+    })
+
+     .state('tab.emergency', {
+      url: "/emergency",
+      
+      views: {
+      'tab-emergency': {
+          templateUrl: "templates/emergency.html",
+          controller: 'recemergencyctrl'
+        }
+      }
+    })
+
+     .state('tab.recvis' , {
+      url: "/recvis",
+      cache:false,
+      views: {
+      'tab-recvis': {
+          templateUrl: "templates/recvisitor.html",
+          controller: 'RecVisitor'
+        }
+      }
+    })
+
+     // .state('recvis', {
+     //        url: "/recvis",
+           
+     //                templateUrl: "templates/recvisitor.html",
+     //                controller: 'RecVisitor'
+
+              
+     //    })
 
         .state('user-signup', {
             url: "/user-signup",
@@ -164,14 +209,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'myservices', 'jagrut
             }
         })
 
-        .state('recvis', {
-            url: "/recvis",
-           
-                    templateUrl: "templates/recvisitor.html",
-                    controller: 'RecVisitor'
-
-              
-        })
+        
         .state('app.gallery', {
             url: "/gallery",
             views: {
@@ -220,6 +258,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'myservices', 'jagrut
             }
         });
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('user-login');
+    $urlRouterProvider.otherwise('app/home');
 })
 

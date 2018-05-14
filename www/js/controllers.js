@@ -46,15 +46,54 @@ angular.module('starter.controllers', ['myservices'])
      });
 
 
-
-      
-
      };
 
     $scope.name = localStorage.getItem('estate_name');
   $scope.address = localStorage.getItem('estate_address');
 
 })
+
+.controller ('tabCtrl', function($scope,$ionicScrollDelegate,$state,$timeout,$ionicHistory,$ionicPopup){
+  $scope.Logout = function(){
+      var confirmPopup = $ionicPopup.confirm({
+       title: '<b> <font color=blue>Sign out?</font></b>',
+       template: 'Are you sure you want to Sign out?',
+        buttons: [
+              { text: 'No', type:"button-assertive" },
+              {
+               text: '<b>Yes</b>',
+               type: 'button-positive',
+               onTap: function(res) {
+            
+                  if (res) {
+                  $timeout(function () {
+                  $ionicHistory.clearCache();
+                  $ionicHistory.clearHistory();
+                  $ionicHistory.nextViewOptions({ disableBack: true, historyRoot: true });
+                  localStorage.removeItem('estate_name');
+                  localStorage.removeItem('estate_address');
+                  localStorage.removeItem('estate_role');
+                  localStorage.removeItem('estate_api_token');
+                  localStorage.removeItem('estate_id');
+
+        $state.go('user-login');
+        }, 30);
+
+                  } else {
+                    console.log('hey');
+                  }
+               }
+            }
+        ]
+     });
+
+
+     };
+
+    $scope.name = localStorage.getItem('estate_name');
+  $scope.address = localStorage.getItem('estate_address');
+})
+  
 
 .controller('ArticlesCtrl', function($scope, $ionicScrollDelegate, $ionicLoading,$rootScope,$ionicActionSheet,$ionicPopup, $timeout,$http) {
        
@@ -325,7 +364,7 @@ angular.module('starter.controllers', ['myservices'])
     .controller('RecVisitor', function($scope, $ionicPopup, $http, $state,$rootScope,$timeout,$ionicHistory,$ionicLoading,$rootScope){
       $ionicLoading.show({
       template: '<ion-spinner icon="spiral"></ion-spinner>',
-      // duration: 6000,
+      duration: 6000,
     });
   
 
@@ -360,6 +399,35 @@ angular.module('starter.controllers', ['myservices'])
        })
     // });
 
+$scope.doRefresh = function(){
+  $ionicLoading.show({
+      template: '<ion-spinner icon="spiral"></ion-spinner>',
+      duration: 6000,
+    });
+  $http.get(link, headers,{ timeout: 5000})
+      .success(function(data,status,headers){
+        $ionicLoading.hide();
+        $scope.data = data.data;
+        console.log($scope.data.data);
+        $scope.showLoader = true;
+
+      for(var i = 0; i < $scope.data; i++){
+      console.log($scope.data[i].id);
+    // 
+        }
+
+  }) .error(function(data,status,headers,config)
+       {
+        $ionicLoading.hide();
+        $ionicPopup.alert
+          ({
+             title: 'Network Error',
+             template: 'Please try later'
+          });
+
+       })
+}
+
 $scope.go = function(id) {
   
   $rootScope.visitor_id = id;
@@ -387,6 +455,92 @@ $scope.Logout = function(){
             console.log(vis);
         };
     })
+
+
+    .controller('recemergencyctrl', function($scope, $ionicScrollDelegate, $ionicLoading,$rootScope,$ionicActionSheet,$ionicPopup, $timeout,$http) {
+    
+    $ionicLoading.show({
+          template: '<ion-spinner icon="spiral"></ion-spinner>',
+          duration: 6000,
+        });
+
+      var api = localStorage.getItem('estate_api_token');
+      var link = "http://46.101.42.51/api/emergencies/?api_token="+api;
+       var headers= 
+          {
+            Content_Type: "application/json",
+            Accept: 'application/json',
+          };
+       $http.get(link, headers,{ timeout: 5000})
+      .success(function(data,status,headers){
+        $ionicLoading.hide();
+        $scope.data = data.data;
+        console.log($scope.data.data);
+        $scope.showLoader = true;
+
+      for(var i = 0; i < $scope.data; i++){
+      console.log($scope.data[i].id);
+    // 
+        }
+
+  }) .error(function(data,status,headers,config)
+       {
+        $ionicLoading.hide();
+        $ionicPopup.alert
+          ({
+             title: 'Network Error',
+             template: 'Please try later'
+          });
+
+       })
+    // });
+
+    $scope.doRefresh = function(){
+      $ionicLoading.show({
+          template: '<ion-spinner icon="spiral"></ion-spinner>',
+          duration: 6000,
+        });
+        $http.get(link, headers,{ timeout: 5000})
+        .success(function(data,status,headers){
+          $ionicLoading.hide();
+          $scope.data = data.data;
+          console.log($scope.data.data);
+          $scope.showLoader = true;
+
+        for(var i = 0; i < $scope.data; i++){
+        console.log($scope.data[i].id);
+      // 
+          }
+
+    }) .error(function(data,status,headers,config)
+         {
+          $ionicLoading.hide();
+          $ionicPopup.alert
+            ({
+               title: 'Network Error',
+               template: 'Please try later'
+            });
+
+         })
+  }
+
+  $scope.Logout = function(){
+      $timeout(function () {
+        $ionicHistory.clearCache();
+        $ionicHistory.clearHistory();
+        $ionicHistory.nextViewOptions({ disableBack: true, historyRoot: true });
+        localStorage.removeItem('estate_name');
+        localStorage.removeItem('estate_address');
+        localStorage.removeItem('estate_role');
+        localStorage.removeItem('estate_api_token');
+        localStorage.removeItem('estate_id');
+
+        $state.go('user-login');
+        }, 30);
+
+};
+})
+   
 
 
     .controller('seenVis', function($scope, $ionicPopup, $http, $state,$rootScope,$timeout,$ionicHistory,$ionicLoading,$rootScope){
@@ -442,6 +596,50 @@ $scope.Logout = function(){
        })
       };
 
+      $scope.doRefresh = function(){
+        $ionicLoading.show({
+      template: '<ion-spinner icon="spiral"></ion-spinner>',
+      duration: 6000,
+    });
+        if ($scope.id == null){
+
+      } else{
+
+      console.log($rootScope.visitor_id);
+      var link = 'http://46.101.42.51/api/visitors/'+$rootScope.visitor_id+'/showVisitors?api_token='+api;
+      var headers= 
+          {
+            Content_Type: "application/json",
+            Accept: 'application/json',
+          };
+      $http.get(link,headers,{ timeout: 5000})
+      .success(function(data){
+      $ionicLoading.hide();
+      $scope.data=data.data;
+
+       for(var i = 0; i < $scope.data; i++){
+      console.log($scope.data[i].names);
+      // 
+      }
+
+      console.log($scope.data);
+      $scope.showLoader = true;
+
+      }).error(function(data,status,headers,config)
+       {
+        $ionicLoading.hide();
+        $ionicPopup.alert
+          ({
+             title: 'Network Error',
+             template: 'Please try later'
+          });
+        $scope.showLoader = true;
+
+       })
+      };
+
+      }
+
         $scope.click = function(index) {
             // console.log('hey');
           $scope.show = true;
@@ -479,7 +677,7 @@ $scope.Logout = function(){
          ({
             template: '<ion-spinner icon="spiral"></ion-spinner>',
             animation: 'fade-in',
-            // duration:5000
+            duration:7000
 
           });
 
@@ -587,7 +785,7 @@ $scope.Logout = function(){
       
       } else {
 
-        $state.go('recvis');
+        $state.go('tab.recvis');
         $ionicHistory.nextViewOptions({ disableBack: true, historyRoot: true });
 
       };

@@ -1,11 +1,13 @@
 
-<ion-view >
+<ion-view style="background-color:#8ea2e2;">
   <!-- <ion-content> -->
 
     <div class="bar bar-header bar-calm">
     <button class="button button-icon ln-power" ng-click="Logout()"></button>
 
         <h1 class="title">Received Visitor</h1>
+    <button class="button button-icon ln-refresh2" ng-click="doRefresh()"></button>
+        
     </div>
 
     <div class="bar bar-subheader item-input-inset" style="background-color:#8ea2e2;">
@@ -16,6 +18,11 @@
             </div>
 
     <ion-content class="has-subheader gem-ion-content" style="background-color:#8ea2e2;" overflow-scroll="true" ng-repeat="x in data.data|filter:input.filterVis">
+      <ion-refresher on-refresh="doRefresh()"
+                     pulling-text="Pull to refresh..."
+                     >
+                     
+      </ion-refresher>
     
         <a class="item gate padded" href="#/seenVis"  style="background-color:#8ea2e2;" ng-click="go(x.id)">
               <p> <h3><font color="blue"><b> House Number</font>: {{x.address}} </b></h3></p>

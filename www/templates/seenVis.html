@@ -1,9 +1,11 @@
-<ion-view>
+<ion-view style="background-color:#8ea2e2;">
 
     <div class="bar bar-header bar-calm">
     <button class="button button-icon ion-chevron-left" ng-click="goBack()"></button>
 
         <h1 class="title">Visitors</h1>
+    <button class="button button-icon ln-refresh2" ng-click="doRefresh()"></button>
+
     </div>
     <div class="bar bar-subheader item-input-inset" style="background-color:#8ea2e2;">
                 <label class="item-input-wrapper">
@@ -15,6 +17,11 @@
 
 
   <ion-content class="has-subheader gem-ion-content" style="background-color:#8ea2e2;" overflow-scroll="true" ng-repeat="x in data|filter:input.filterVis">
+    <ion-refresher on-refresh="doRefresh()"
+                     pulling-text="Pull to refresh..."
+                     >
+                     
+      </ion-refresher>
     
         <!-- <a class="item gate padded"  style="background-color:#8ea2e2;">
               <p> <h3><font color="blue"><b>Visitor Name </font>: {{x.names}} </b></h3></p>
