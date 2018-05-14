@@ -1,0 +1,47 @@
+<ion-view style="background-color:#8ea2e2;">
+
+    <div class="bar bar-header bar-calm">
+    <button class="button button-icon ln-power" ng-click="Logout()"></button>
+    
+
+        <h1 class="title">Emergencies</h1>
+    <button class="button button-icon ln-refresh2" ng-click="doRefresh()"></button>
+
+    </div>
+
+    <div class="bar bar-subheader item-input-inset" style="background-color:#8ea2e2;">
+                <label class="item-input-wrapper">
+                  <i class="icon ion-search placeholder-icon"></i>
+                     <input type="text" placeholder="search" ng-model="input.filterVis">
+                </label>
+            </div>
+
+
+
+  <ion-content class="has-subheader gem-ion-content" style="background-color:#8ea2e2;" overflow-scroll="true" ng-repeat="x in data.data|filter:input.filterVis">
+    <ion-refresher on-refresh="doRefresh()"
+                     pulling-text="Pull to refresh..."
+                     >
+                     
+      </ion-refresher>
+    
+        <div class = "item gate padded" ng-repeat="x in data.data | filter:input.filterVis" style="background-color:#8ea2e2;">
+        <p> <h3><b> Emergency:<font color="blue"> {{x.type}}</font> </b></h3></p>
+         <h3><b> House Number: <font color="blue">{{x.user_id}}</font></b> </h3></font>
+         <h3><b> Description: <font color="blue">{{x.description}}</font></b> </h3></font>
+         <div class="button button-small" ng-click="click()" style="float: right" ng-show="show" >
+                 Cleared
+                </div>
+                <div class="button button-small" ng-click="click()" style="float: right" ng-hide="hide" >
+                 Clear
+                </div>
+
+    </div>
+
+        
+      
+  </ion-content>
+
+</ion-view>
+
+<!-- ln-delete -->
